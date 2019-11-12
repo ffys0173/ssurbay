@@ -1,0 +1,59 @@
+﻿<html>
+<head>
+<meta http-eqiv="Content-type" content="text/html; charset=UTF-8" />
+<title>비밀번호 찾기</title>
+<link rel="stylesheet" type="text/css" href="css/signin.css">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+    <section>
+        <form action="/pwrecover" method="post">
+        <table align=center display=table-cell><tr><td><img src = "img/title_ssurbay.png" style="transform:scale(0.8)" height="100px"></td></tr></table>
+        <h1>비밀번호 찾기</h1>
+
+        <table align=center>          
+            <tr>   
+                <td width="400px"><input name="FindID" type="text" id="FindID" required="required" autocomplete="off" placeholder="ID를 입력하세요." maxlength="10"></td>
+            </tr>
+        </table>
+
+        <br>
+
+        <table align=center display=table-cell>
+          <tr>
+            <td>
+                <select name="answfindpw" style='width:400px;'>
+                    <option selected>-비밀번호 찾기 질문-</option>
+                    <option value="1">가장 좋아하는 음식은?</option>
+                    <option value="2">가고 싶은 여행지는?</option>
+                    <option value="3">가장 좋아하는 가수는?</option>
+                    <option value="4">가장 인상 깊게 본 영화는?</option>
+                </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <input name="find" type="text" placeholder="응답하기" required="required">
+            </td>
+          </tr>
+
+          <footer>
+             <table align=center display=table-cell>   
+               <tr>       
+                 <td>
+                   <input type="submit" value="확인">
+                   <input type="button" value="취소" onclick="movepage('/')">
+                 </td>
+               </tr>
+             </table>
+          </footer>
+         </table>
+
+       </form>
+   </section>
+   
+<script src= 'scripts/client.js'></script>
+</body>
+</html>

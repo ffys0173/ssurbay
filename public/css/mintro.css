@@ -1,0 +1,68 @@
+body {
+	background-color:#1C1C1C;
+	overflow-x:hidden;
+	overflow-y:auto;
+	color: white;
+}
+
+form{
+	margin-bottom: 0px;
+}
+
+.intro{
+	position: relative;
+	text-align: center;
+	top: 50%;
+	margin-top: -260px;
+	color: white;
+
+	animation-name: introslide;
+	animation-duration: 1s;
+}
+
+input[type="text"]{
+	font-size: 24px;
+	height: 50px;
+	width: 100%;
+	border: 1px solid #bcbcbc;
+	border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	color: white;
+	background-color: #424242;
+}
+input[type="password"]{
+	font-size: 24px;
+	height: 50px;
+	width: 100%;
+	border: 1px solid #bcbcbc;
+	border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	color: white;
+	background-color: #424242;
+}
+
+input.intro-button{
+        margin-left: -4px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid;
+        font-size: 40px;
+        color: white;
+        background-color: #151515;
+        width: 210px;
+        height: 60px;
+    }
+
+a.signin{
+	text-decoration: none;
+	color: white;
+}
+a.signin:hover{
+	text-decoration: underline;
+}

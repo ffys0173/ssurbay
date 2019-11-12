@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"content="initial-scale=1.0;maximum-scale=1.0;minimum-sacle=1.0;user-scalable=yes;width=device-width;height=device-height"/>
+    
+        <title>SSurBay -캡스톤디자인-</title>
+        <link rel="stylesheet" type="text/css" href="css/mmain.css">
+    </head>
+<body>
+
+    <div id = 'topbaralign'>
+            
+        <img src = "img/title_ssurbay.png" width = "200" height = "auto" onclick="movepage('/home')">
+            
+    </div>
+    <div id = 'topbaralign2'>
+        HG Kang,JS Jeon,YS Kim's Senier Project &lt;SSurBay&gt;
+    </div>
+
+    <span id="clock"></span>
+    <br>
+    <button onclick='movepage("/newtopic")'>작성하기</button>
+    <button onclick='movepage("/<%=userid%>/mypage")'>내글찾기</button>
+    <button onclick='movepage("/<%=userid%>/myvote")'>투표한글</button>
+    <button onclick='movepage("/logout")'>로그아웃</button>
+    <br>
+    <br>
+
+    <%var selected = 'selected = "selected"';%>
+    <%var categories = new Array(6);%>
+    <%#categories[3] = selected%>
+    <%if(category ==="전체"){categories[0] = selected;}%>
+    <%if(category === "여행"){categories[1] = selected;}%>
+    <%if(category === "연애"){categories[2] = selected;}%>
+    <%if(category === "진로"){categories[3] = selected;}%>
+    <%if(category === "식사"){categories[4] = selected;}%>
+    <%if(category === "기타"){categories[5] = selected;}%>
+    <select id='category' name='category' onchange='chageSelect()'>
+        <option value = "전체" <%=categories[0]%>>전체</option>
+        <option value = "여행" <%=categories[1]%>>여행</option>
+        <option value = "연애" <%=categories[2]%>>연애</option>
+        <option value = "진로" <%=categories[3]%>>진로</option>
+        <option value = "식사" <%=categories[4]%>>식사</option>
+        <option value = "기타" <%=categories[5]%>>기타</option>
+    </select>
+    <%for(var i = 0; i < topicinfo.length; i++){%>
+    <div class="topic" id="<%=i%>"/>
+        <form method="post" action = "/vote">
+            <table onclick="poped('<%=i%>')">
+                <tr>
+                    <td width="70" align = center><input type = "hidden" name = "id" value = <%=topicinfo[i].number%>><%=topicinfo[i].category%></input></td>
+                    <td width="640"><%=topicinfo[i].title%></td>
+                    <td width="60" align = center><span value = "<%=topicinfo[i].limittime%>" name = "limittime"></span></td>
+                </tr>
+            </table>
+            <table id="table<%=i%>" style = "visibility: hidden"/>
+                <tr>
+                    <td width="550"><%-topicinfo[i].text.replace(/\n/g, '<br/>')%></td>
+                    <td width="200">
+                        <%if(topicinfo[i].in1){%>
+                        <input type="radio" name=s elect value=1><%=topicinfo[i].in1%><br>
+                        <%}%>
+                        <%if(topicinfo[i].in2){%>
+                        <input type="radio" name=s elect value=2><%=topicinfo[i].in2%><br>
+                        <%}%>
+                        <%if(topicinfo[i].in3){%>
+                        <input type="radio" name=s elect value=3><%=topicinfo[i].in3%><br>
+                        <%}%>
+                        <%if(topicinfo[i].in4){%>
+                        <input type="radio" name=s elect value=4><%=topicinfo[i].in4%><br>
+                        <%}%>
+                        <%if(topicinfo[i].in5){%>
+                        <input type="radio" name=s elect value=5><%=topicinfo[i].in5%><br>
+                        <%}%>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+                        <div align = left>작성시간 : <%=topicinfo[i].time%></div>
+                        <div align = right><input type="submit" value="확인"></form></div>
+                    </td>
+                </tr>
+            </table>
+    </div>
+    <%}%>
+ 
+    <script src= 'scripts/client.js'></script>
+</body>
+    
+</html>

@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>SSurBay -캡스톤디자인-</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    </head>
+<body>
+
+    <% include ./mainbar.ejs%>
+    <%var selected = 'selected = "selected"';%>
+    <%var categories = new Array(6);%>
+    <%if(category === "전체"){categories[0] = selected;}%>
+    <%if(category === "여행"){categories[1] = selected;}%>
+    <%if(category === "연애"){categories[2] = selected;}%>
+    <%if(category === "진로"){categories[3] = selected;}%>
+    <%if(category === "식사"){categories[4] = selected;}%>
+    <%if(category === "기타"){categories[5] = selected;}%>
+
+    <%var sorts = new Array(2);%>
+    <%if(sort === "exp"){sorts[0] = selected;}%>
+    <%if(sort === "new"){sorts[1] = selected;}%>
+    <mainlayer>
+        <select class='s' id='category' name='category' onchange='chageSelect()'>
+            <option value = "전체" <%=categories[0]%>>전체</option>
+            <option value = "여행" <%=categories[1]%>>여행</option>
+            <option value = "연애" <%=categories[2]%>>연애</option>
+            <option value = "진로" <%=categories[3]%>>진로</option>
+            <option value = "식사" <%=categories[4]%>>식사</option>
+            <option value = "기타" <%=categories[5]%>>기타</option>
+        </select>
+
+        <select class='s' id='sort' name='sort' onchange='chageSelect()'>
+            <option value = "exp" <%=sorts[0]%>>만료순</option>
+            <option value = "new" <%=sorts[1]%>>신규순</option>
+        </select>
+        <%for(var i = 0; i < topicinfo.length; i++){%>
+        <div class="topic" id="<%=i%>"/>
+            <form method="post" action = "/vote">
+                <table onclick="poped('<%=i%>')">
+                    <tr>
+                        <td width="50" align = center><input type = "hidden" name = "id" value = <%=topicinfo[i].number%>><%=topicinfo[i].category%></input></td>
+                        <td width="640"><%=topicinfo[i].title%></td>
+                        <td width="60" align = center><span value = "<%=topicinfo[i].limittime%>" name = "limittime"></span></td>
+                    </tr>
+                </table>
+                <table id="table<%=i%>" style = "visibility: hidden"/>
+                    <tr>
+                        <td width="550"><%-topicinfo[i].text.replace(/\n/g, '<br/>')%></td>
+                        <td width="200">
+                            <%if(topicinfo[i].in1){%>
+                            <input type="radio" name=s elect value=1><%=topicinfo[i].in1%><br>
+                            <%}%>
+                            <%if(topicinfo[i].in2){%>
+                            <input type="radio" name=s elect value=2><%=topicinfo[i].in2%><br>
+                            <%}%>
+                            <%if(topicinfo[i].in3){%>
+                            <input type="radio" name=s elect value=3><%=topicinfo[i].in3%><br>
+                            <%}%>
+                            <%if(topicinfo[i].in4){%>
+                            <input type="radio" name=s elect value=4><%=topicinfo[i].in4%><br>
+                            <%}%>
+                            <%if(topicinfo[i].in5){%>
+                            <input type="radio" name=s elect value=5><%=topicinfo[i].in5%><br>
+                            <%}%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan='2'>
+                            <div align = left>작성시간 : <%=topicinfo[i].time%></div>
+                            <div align = right><input type="submit" value="확인"></form></div>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+        <%}%>
+        </mainlayer>
+
+        <script src= 'scripts/client.js'></script>
+    </body>
+</html>

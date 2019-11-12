@@ -1,0 +1,26 @@
+<sidebar>
+    <span id="clock"></span>
+    <br>
+    <button onclick='movepage("/newtopic")'>작성하기</button>
+    <br>
+    <button onclick='movepage("/<%=userid%>/mypage")'>내글찾기</button>
+    <br>
+    
+    <button onclick='movepage("/<%=userid%>/myvote")'>투표한글</button>
+    <br>
+    <%#<button onclick='movepage("/init")'>증가초기화</button>
+    <br>%>
+    <button onclick='movepage("/logout")'>로그아웃</button>
+    <br>
+
+</sidebar>
+
+<topbar>
+    <div id = 'topbaralign'>
+        <img src = "img/title_ssurbay.png" width = "143" height = "30" onclick="movepage('/home')">
+    </div>
+
+    <div id = 'topbaralign2'>
+        HG Kang, JS Jeon, YS Kim's Senier Project &lt;SSurBay&gt;
+    </div>
+</topbar>

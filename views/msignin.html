@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"content="initial-scale=1.0;maximum-scale=1.0;minimum-scale=1.0;user-scalable=yes;width=device-width;height=device-height"/>
+
+<title>회원가입</title>
+<link rel="stylesheet" type="text/css" href="css/mstyle.css">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+
+<section>
+    <form action="/signin" method="post">
+    <table align=center display=table-cell> <tr><td><img src = "img/title_ssurbay.png" style="max-width :100%;height:auto;"></td></tr></table>
+    <h1>회원가입</h1>
+    
+        <table align=center>        
+        <tr>
+            <td><input class="msign" name="ID" type="text" id="ID" required="required" autocomplete="off" placeholder="ID를 입력하세요." maxlength="10"></td>
+        </tr>
+
+        <tr>
+            <td><input class="msign" id = "pw" name="pw" type = "password" required="required" autocomplete="off" placeholder="비밀번호를 입력하세요." maxlength="10"></td>
+        </tr>
+
+        <tr>
+            <td><input class="msign" name="pw" type = "password" required="required" autocomplete="off" placeholder="비밀번호를 다시 입력하세요." maxlength="10" onchange="IspwValid()"></td>  
+        </tr>
+        </table>  
+        </td>
+
+    <br>
+    <hr style="width:95%" size="1px">
+    <br>
+
+    <table align=center display=table-cell>
+        <tr><td>
+            <select class="msign" name="question">
+                <option selected>-비밀번호 찾기 질문-</option>
+                <option value="1">가장 좋아하는 음식은?</option>
+                <option value="2">가고 싶은 여행지는?</option>
+                <option value="3">가장 좋아하는 가수는?</option>
+                <option value="4">가장 인상 깊게 본 영화는?</option>
+            </select>
+        </td></tr>
+        <tr><td>
+            <input class="msign" name="answer" type="text" placeholder="응답하기" required="required">
+        </td></tr>
+
+        <footer>
+                <table align=center display=table-cell>   
+                    <tr>       
+                        <td>
+                        <input type="submit" value="가입하기" >
+                        <input type="button" value="취소" onclick="movepage('/')"></td>
+                   </tr>
+                </table>
+        </footer>
+    </form>
+</section>
+<script src= 'scripts/client.js'></script>
+<script>
+    function IspwValid(){
+        pw = document.getElementsByName("pw");
+        if(pw[0].value !== pw[1].value){
+            alert("비밀번호를 확인해주세요.");
+            pw[1].focus();
+        }
+    }
+</script>
+
+</body>
+</html>

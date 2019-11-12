@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"content="initial-scale=1.0;maximum-scale=1.0;minimum-scale=1.0;user-scalable=yes;width=device-width;height=device-height"/>
+
+<title>비밀번호 찾기</title>
+<link rel="stylesheet" type="text/css" href="css/mstyle.css">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+    <section>
+        <form action="/pwrecover" method="post">
+        <table align=center display=table-cell><tr><td><img src = "img/title_ssurbay.png" style="max-width :100%;height:auto;"></td></tr></table>
+        <h1>비밀번호 찾기</h1>
+
+        <table align=center>          
+            <tr>   
+                <td><input class="msign" name="FindID" type="text" id="FindID" required="required" autocomplete="off" placeholder="ID를 입력하세요." maxlength="10"></td>
+            </tr>
+        </table>
+
+        <br>
+
+        <table align=center display=table-cell>
+          <tr>
+            <td>
+                <select class="msign" name="answfindpw">
+                    <option selected>-비밀번호 찾기 질문-</option>
+                    <option value="1">가장 좋아하는 음식은?</option>
+                    <option value="2">가고 싶은 여행지는?</option>
+                    <option value="3">가장 좋아하는 가수는?</option>
+                    <option value="4">가장 인상 깊게 본 영화는?</option>
+                </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <input class="msign" name="find" type="text" placeholder="응답하기" required="required">
+            </td>
+          </tr>
+
+          <footer>
+             <table align=center display=table-cell>   
+               <tr>       
+                 <td>
+                   <input type="submit" value="확인">
+                   <input type="button" value="취소" onclick="movepage('/')">
+                 </td>
+               </tr>
+             </table>
+          </footer>
+         </table>
+
+       </form>
+   </section>
+   
+<script src= 'scripts/client.js'></script>
+</body>
+</html>

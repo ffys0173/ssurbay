@@ -1,0 +1,285 @@
+body {
+	background-color:#1C1C1C;
+	overflow-x:hidden;
+	overflow-y:auto;
+	color: white;
+}
+
+textarea{
+	font-size: 12px;
+	resize: none;
+	height: auto;
+	width: 640px;
+	border: 1px solid #bcbcbc;
+	border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	color: white;
+	background-color: #424242;
+}
+form{
+	margin-bottom: 0px;
+}
+
+#login{
+	width: 200px;
+	margin: 0 auto;
+}
+a.signin{
+	text-decoration: none;
+	color: white;
+}
+a.signin:hover{
+	text-decoration: underline;
+}
+
+#category{
+
+	margin-top: 20px;
+	margin-left: 20px;
+
+	font-size: 12px;
+	height: 23px;
+	width: 50px;
+	border: 1px solid #bcbcbc;
+	border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	color: white;
+	background-color: #424242;
+}
+#sort{
+
+	margin-top: 20px;
+	margin-left: 20px;
+
+	font-size: 12px;
+	height: 23px;
+	width: 70px;
+	border: 1px solid #bcbcbc;
+	border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	color: white;
+	background-color: #424242;
+}
+
+input[type="text"]{
+	font-size: 12px;
+	height: 23px;
+	width: 100%;
+	border: 1px solid #bcbcbc;
+	border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	color: white;
+	background-color: #424242;
+}
+
+input[type="password"]{
+	font-size: 12px;
+	height: 23px;
+	width: 100%;
+	border: 1px solid #bcbcbc;
+	border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	color: white;
+	background-color: #424242;
+}
+
+input[type="number"]{
+	font-size: 12px;
+	height: 23px;
+	width: 58px;
+	border: 1px solid #bcbcbc;
+	border-radius: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	color: white;
+	background-color: #424242;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
+
+table{
+	border-collapse: collapse;
+	margin-bottom: 5px;
+	background-color: #151515;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+td, tr{
+	border: 1px solid gray;
+	padding: 5px;
+}
+#newtopic{
+	margin: 20px;
+	width: 750px;
+}
+
+topbar{
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+	background-color: #151515;
+}
+#topbaralign{
+	position: fixed;
+	left: 50%;
+	margin-left: -447px;
+}
+#topbaralign2{
+	position: fixed;
+	left: 55%;
+}
+
+sidebar{
+	position: fixed;
+	text-align: center;
+	margin-left: -450px;
+	top: 50px;
+	left: 50%;
+	width: 150px;
+	height: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+    box-sizing: border-box;
+	padding: 10px;
+	line-height:200%;
+	background-color: #424242;
+}
+
+mainlayer{
+	position: absolute;
+	margin-left: -300px;
+	top: 50px;
+	left: 50%;
+	height: 100%;
+	width: 100%;
+}
+
+mainlayer2{
+	position: absolute;
+	margin-left: -300px;
+	top: 40px;
+	left: 50%;
+	height: 100%;
+	width: 100%;
+}
+
+.intro{
+	position: relative;
+	text-align: center;
+	top: 50%;
+	margin-top: -260px;
+	color: white;
+
+	animation-name: introslide;
+	animation-duration: 1s;
+}
+#intro-button{
+/*	margin: 0 auto;*/
+	margin-left: -4px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 1px solid;
+	font-size: 40px;
+	color: white;
+	background-color: #151515;
+	width: 210px;
+	height: 60px;
+}
+
+.topic{
+	animation-duration: 0.7s;
+
+	z-index: 0;
+	position: relative;
+	margin: 20px;
+	max-width:750px;
+	max-height: 45px;
+
+	border: 1px solid #0A0A2A;
+	padding:5px;
+	overflow:hidden;
+	background-color: #424242;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.mypage{
+	z-index: 0;
+	position: relative;
+	width:750px;
+	height:auto;
+	border: 1px solid #0A0A2A;
+
+	margin: 20px;
+	padding:5px;
+	overflow:hidden;
+	background-color: #424242;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@keyframes slidedown{
+	from{
+		max-height: 45px;
+	}
+	to{
+		max-height: 500px;
+	}
+}
+
+@keyframes slideup{
+	from{
+		max-height: 500px;
+	}
+	40%{
+		max-height: 45px;
+	}
+	to{
+		max-height: 45px;
+	}
+}
+
+@keyframes introslide{
+	from {
+	  transform: translateY(-100%);
+	  opacity: 0;
+	}
+	to {
+	  transform: translateY(0);
+	  opacity: 1;
+	}
+}

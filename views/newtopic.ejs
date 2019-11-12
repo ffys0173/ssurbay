@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>
+            SSurBay -새글쓰기-
+        </title>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    </head>
+
+    <body>
+
+    <% include ./mainbar.ejs%>
+
+    <mainlayer>
+    <div id = "newtopic">
+        
+        쉽게 결정을 내리기 어려운 고민이 있나요?<br>
+        정말 별거 아닌데도 괜히 선택하기 힘든가요?<br>
+        SSURBAY가 도와드려요!<br>
+        <br>
+        <form method="POST" action="/formrecieve">
+            <table id="table">
+                <tr>
+                    <td><label>제목</label></td>
+                    <td><input name="title" type = "text" required="required" autocomplete="off" placeholder="제목을 입력하세요" maxlength="20"></td>
+                    <td width = "50px">
+                        <select name = "category">
+                            <option value="여행">여행</option>
+                            <option value="연애">연애</option>
+                            <option value="진로">진로</option>
+                            <option value="식사">식사</option>
+                            <option value="기타">기타</option>
+                        </select></td>
+                    <td width = "66px"><label>시간설정</label></td>
+                    <td width = "50px"><input type = "number" name = "limit" required="required" autocomplete="off" placeholder="최대 10분" min="0" max="10" value="5"/></td>
+                </tr>
+                <tr>
+                    <td><label>내용</label></td>
+                    <td colspan="4"><textarea name="text" rows = "7" required="required" autocomplete="off" placeholder="내용을 입력하세요" maxlength="120"></textarea></td>
+                </tr>
+                
+                <tr>
+                    <td><label>선택1</label></td>
+                    <td colspan="4"><input name="item1" type = "text" required="required" autocomplete="off" placeholder="첫번째 선택지를 입력하세요(필수)" maxlength="20"></td>
+                </tr>
+                <tr>
+                    <td><label>선택2</label></td>
+                    <td colspan="4"><input name="item2" type = "text" required="required" autocomplete="off" placeholder="두번째 선택지를 입력하세요(필수)" maxlength="20"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="5" align=center><button type="button" onclick="addcolumn()">추가하기</button></td>
+                </tr>
+
+                <tr>
+                    <td colspan="5" align=right><button type = "submit">작성하기</button></form> <button onclick = "movepage('/home')">뒤로가기</button></td>
+                </tr>
+            </table>
+        <script src= 'scripts/client.js'></script>
+        </div>
+    </mainlayer>
+
+    </body>
+</html>

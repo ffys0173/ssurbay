@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>SSurBay -내글찾기-</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/chart.css">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    </head>
+
+    <body>
+
+        <% include ./mainbar.ejs%>
+
+        <mainlayer>
+
+        <div class = "mypage">
+    
+            당신의 고민에 SSURBAY가 도움이 되었나요?<br>
+            이제는 선택을 내리고 모두에게 알려주세요.<br>
+
+            <br>
+            내가 작성한 글 번호 : 
+            <table>
+        <%for(var i=0;i<mytopic.length;i++){%>
+                <form method="POST" action="/<%=userid%>/mypage">
+                    <input type="hidden" name=showtopic value=<%=i%>>
+                    <button type="submit"><%=i+1%></button>
+                </form>
+        <%}%>
+            </table>
+
+        <%
+        var total = mytopic[showtopic].voted1 + mytopic[showtopic].voted2 + mytopic[showtopic].voted3 + mytopic[showtopic].voted4 + mytopic[showtopic].voted5;
+        if(total==0)total=1;
+        var per1 = mytopic[showtopic].voted1*100/total + "%";
+        var per2 = mytopic[showtopic].voted2*100/total + "%";
+        var per3 = mytopic[showtopic].voted3*100/total + "%";
+        var per4 = mytopic[showtopic].voted4*100/total + "%";
+        var per5 = mytopic[showtopic].voted5*100/total + "%";
+        %>
+
+            <table><form method="post" action = "/decision">
+                <tr>
+                    <td width="50">No.<input type = "hidden" name = "id" value = <%=mytopic[showtopic].number%>><%=showtopic*1+1%></td>
+                    <td colspan="2"><%=mytopic[showtopic].title%></td>
+                </tr>
+                <tr>
+                    <td width="600" colspan="2"><%=mytopic[showtopic].text%></td>
+                    <td width="200">
+                        <div class ="charts">
+                            <%if(mytopic[showtopic].in1){%>
+                            <input type="radio" name=s elect value=1><%=mytopic[showtopic].in1%>(<%=mytopic[showtopic].voted1%>)
+                            <div class="charts__chart" data-percent=<%=per1%> style="width:<%=per1%>"></div>
+                            <%}%>
+                            <%if(mytopic[showtopic].in2){%>
+                            <input type="radio" name=s elect value=2><%=mytopic[showtopic].in2%>(<%=mytopic[showtopic].voted2%>)
+                            <div class="charts__chart" data-percent=<%=per2%> style="width:<%=per2%>"></div>
+                            <%}%>
+                            <%if(mytopic[showtopic].in3){%>
+                            <input type="radio" name=s elect value=3><%=mytopic[showtopic].in3%>(<%=mytopic[showtopic].voted3%>)
+                            <div class="charts__chart" data-percent=<%=per3%> style="width:<%=per3%>"></div>
+                            <%}%>
+                            <%if(mytopic[showtopic].in4){%>
+                            <input type="radio" name=s elect value=4><%=mytopic[showtopic].in4%>(<%=mytopic[showtopic].voted4%>)
+                            <div class="charts__chart" data-percent=<%=per4%> style="width:<%=per4%>"></div>
+                            <%}%>
+                            <%if(mytopic[showtopic].in5){%>
+                            <input type="radio" name=s elect value=5><%=mytopic[showtopic].in5%>(<%=mytopic[showtopic].voted5%>)
+                            <div class="charts__chart" data-percent=<%=per5%> style="width:<%=per5%>"></div>
+                            <%}%>
+                        </div>
+                    <br>
+                    </td>
+                </tr>
+                <tr height>
+                    <td colspan='3'>
+                    <div align=right>
+        <%if(mytopic[showtopic].expired==='N'){%>
+                    <button type="submit">선택하기</button></form>
+        <%}else{%>
+                    </form><button onclick='alert("이미 선택되었음.")'>선택완료됨</button>
+        <%}%>
+                    <button onclick = "movepage('/delete<%=mytopic[showtopic].number%>')">삭제하기</button>
+                    <button onclick = "movepage('/home')">뒤로가기</button>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </mainlayer>
+
+    <script src= 'scripts/client.js'></script>
+    </body>
+</html>

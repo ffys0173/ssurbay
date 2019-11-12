@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>SSurBay -내가 투표한 글 보기-</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/chart.css">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    </head>
+
+    <body>
+        <% include ./mainbar.ejs%>
+
+        <mainlayer>
+
+        <div class = "mypage">
+    
+            여러분이 투표해주신 글 입니다.<br>
+
+            <br>
+            내가 투표한 글 번호 : 
+            <table>
+        <%for(var i=0;i<topic.length;i++){%>
+                <form method="POST" action="/<%=userid%>/myvote">
+                    <input type="hidden" name=showtopic value=<%=i%>>
+                    <button type="submit"><%=i+1%></button>
+                </form>
+        <%}%>
+            </table>
+
+        <%
+        var total = topic[showtopic].voted1 + topic[showtopic].voted2 + topic[showtopic].voted3 + topic[showtopic].voted4 + topic[showtopic].voted5;
+        if(total==0)total=1;
+        var per1 = topic[showtopic].voted1*100/total + "%";
+        var per2 = topic[showtopic].voted2*100/total + "%";
+        var per3 = topic[showtopic].voted3*100/total + "%";
+        var per4 = topic[showtopic].voted4*100/total + "%";
+        var per5 = topic[showtopic].voted5*100/total + "%";
+        %>
+
+
+            <table>
+                <tr>
+                    <td width="50">No.<input type = "hidden" name = "id" value=<%=topic[showtopic].number%>><%=showtopic*1+1%></td>
+                    <td colspan="2"><%=topic[showtopic].title%></td>
+                </tr>
+                <tr>
+                    <td width="600" colspan="2"><%=topic[showtopic].text%></td>
+                    <td width="200">
+                        <div class ="charts">
+                            <%if(topic[showtopic].in1){%>
+                            <span><%=topic[showtopic].in1%>(<%=topic[showtopic].voted1%>)</span>
+                            <div class="charts__chart" data-percent=<%=per1%> style="width:<%=per1%>"></div>
+                            <%}%>
+                            <%if(topic[showtopic].in2){%>
+                            <span><%=topic[showtopic].in2%>(<%=topic[showtopic].voted2%>)</span>
+                            <div class="charts__chart" data-percent=<%=per2%> style="width:<%=per2%>"></div>
+                            <%}%>
+                            <%if(topic[showtopic].in3){%>
+                            <span><%=topic[showtopic].in3%>(<%=topic[showtopic].voted3%>)</span>
+                            <div class="charts__chart" data-percent=<%=per3%> style="width:<%=per3%>"></div>
+                            <%}%>
+                            <%if(topic[showtopic].in4){%>
+                            <span><%=topic[showtopic].in4%>(<%=topic[showtopic].voted4%>)</span>
+                            <div class="charts__chart" data-percent=<%=per4%> style="width:<%=per4%>"></div>
+                            <%}%>
+                            <%if(topic[showtopic].in5){%>
+                            <span><%=topic[showtopic].in5%>(<%=topic[showtopic].voted5%>)</span>
+                            <div class="charts__chart" data-percent=<%=per5%> style="width:<%=per5%>"></div>
+                            <%}%>
+                        </div>
+                    </td>
+                </tr>
+                <tr height>
+                    <td colspan='3'>
+                    나의 선택 : <%=topic[showtopic].choice%>
+                    <br>
+                    작성자의 선택 : <%=topic[showtopic].selected%>
+                    <div align=right>
+
+                    <button onclick = "movepage('/home')">뒤로가기</button>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </mainlayer>
+
+    <script src= 'scripts/client.js'></script>
+    </body>
+</html>

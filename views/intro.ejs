@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>SSurBay -캡스톤디자인-</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    </head>
+<body>
+
+    <div class="intro">
+        <img src = "img/title_ssurbay.png">
+        <h1>SSURBAY에 어서오세요</h1>
+        결정장애를 겪고 있나요?<br>
+        당신의 고민을 SSURBAY에 질문하세요<br>
+        사람들을 돕고 싶나요?<br>
+        당신의 지혜를 SSURBAY에 나눠주세요<br>
+        <br>
+        <form method="post" action="/login" onsubmit="test">
+            <div id = "login">
+                <input type = "text" name = "userId" placeholder="id를 입력하세요">
+                <input type = "password"  placeholder="pw를 입력하세요">
+                <input type = "submit" id = "intro-button" onmouseover="ssurbay()" onmouseout="ssurbay()" value="함께하기">
+            </div>
+        </form>
+        <a href="/signin" class="signin">Sign In</a> / <a href="/pwrecover" class="signin">Find PW</a>
+        
+    </div>
+    
+    <script src= 'scripts/client.js'></script>
+</body>
+</html>

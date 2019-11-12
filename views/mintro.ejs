@@ -1,0 +1,29 @@
+<html>
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="Content-Type" name="viewport" content="initial-scale=1.0">
+ 
+        <title>SSurBay -캡스톤디자인-</title>
+        <link rel="stylesheet" type="text/css" href="css/mintro.css">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    </head>
+<body>
+
+    <div class="intro">
+        <img src = "img/title_ssurbay.png" style="max-width :100%;height:auto;">
+        <h1>SSURBAY에 어서오세요</h1>
+        결정장애를 겪고 있나요?<br>
+        당신의 고민을 SSURBAY에 질문하세요<br>
+        사람들을 돕고 싶나요?<br>
+        당신의 지혜를 SSURBAY에 나눠주세요<br>
+        <br>
+        <form method="post" action="/login">
+            <input type = "text" name = "userId" required="required" autocomplete="off" placeholder="id를 입력하세요" maxlength="10">
+            <input type = "password" name = "userpw" required="required" autocomplete="off" placeholder="pw를 입력하세요" maxlength="10">
+            <input type = "submit" class = "intro-button" value="함께하기">
+        </form>
+        <a href="/signin" class="signin">Sign In</a> / <a href="/pwrecover" class="signin">Find PW</a>
+    </div>
+    
+</body>
+</html>
